@@ -1,9 +1,9 @@
-import WeatherDetails from "../components/WeatherDetails";
+import WeatherDetails from "./WeatherDetails";
 import WeatherInfo from "../components/WeatherInfo";
 
 export default function WeatherInfoContainer() {
   return (
-    <div>
+    <div className="space-y-5">
       <WeatherInfo />
       <WeatherDetails />
     </div>

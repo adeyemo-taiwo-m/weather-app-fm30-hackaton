@@ -9,7 +9,6 @@ export default function Settings() {
         alt="svg icon units"
       />
       <span> Units</span>
-      {/* <HiChevronDown /> */}
       <img
         className="h-[14px] w-[9px]"
         src="/images/icon-dropdown.svg"

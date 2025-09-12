@@ -9,6 +9,7 @@
   --breakpoint-tab: 768px; /* Tablet */
   --breakpoint-tab-desk: 960px; /* Tab-Desk */
   --breakpoint-desk: 1440px; /* Desktop */
+
   /* Neutral colors */
   --color-neutral-0: #ffffff;
   --color-neutral-200: #d4d3d9;
@@ -21,6 +22,7 @@
   /* Blue */
   --color-blue-primary-500: #4658d9;
   --color-blue-primary-700: #2b1b9c;
+
   /* Orange */
   --color-orange-secondary: #ff820a;
 
@@ -35,12 +37,13 @@
   --font-dmsans: "DM Sans", sans-serif;
 
   /* Font size */
-  --font-size-hero: 52px;
-  --font-size-hero--line-height: 120%;
-  --font-size-weather-info: 28px;
-
-  /* Line height */
-  /* --leading-hero: 120%; */
+  --text-preset-1: 96px;
+  --text-preset-2: 52px;
+  --text-preset-3: 32px;
+  --text-preset-4: 28px;
+  --text-preset-5: 20px;
+  --text-preset-6: 18px;
+  --text-preset-7: 16px;
 }
 
 /* font-thin → 100
