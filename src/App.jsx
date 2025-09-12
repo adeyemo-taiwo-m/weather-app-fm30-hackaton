@@ -1,3 +1,12 @@
+import Hero from "./ui/Hero";
+import Search from "./ui/Search";
+
 export default function App() {
-  return <div className="text-center ">App</div>;
+  return (
+    <main className="p-4">
+      <Hero />
+      <Search />
+      <section></section>
+    </main>
+  );
 }

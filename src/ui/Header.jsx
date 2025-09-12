@@ -1,3 +1,11 @@
+import Logo from "./Logo";
+import Settings from "./Settings";
+
 export default function Header() {
-  return <div>Header</div>;
+  return (
+    <header className="flex justify-between">
+      <Logo />
+      <Settings />
+    </header>
+  );
 }

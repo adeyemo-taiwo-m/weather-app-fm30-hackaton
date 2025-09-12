@@ -1,32 +1,38 @@
-@import "tailwindcss";
-
 @import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 
+@import "tailwindcss";
 @theme {
+  /* Breakpoints */
+  --breakpoint-mob: 375px; /* Mobile */
+  --breakpoint-tab: 768px; /* Tablet */
+  --breakpoint-desk: 1440px; /* Desktop */
   /* Neutral colors */
-  --color-neutral-0: "#FFFFFF";
-  --color-neutral-200: "#D4D3D9";
-  --color-neutral-300: "#ACACB7";
-  --color-neutral-600: "#3C3B5E";
-  --color-neutral-700: "#302F4A";
-  --color-neutral-800: "#262540";
-  --color-neutral-900: "#02012C";
+  --color-neutral-0: #ffffff;
+  --color-neutral-200: #d4d3d9;
+  --color-neutral-300: #acacb7;
+  --color-neutral-600: #3c3b5e;
+  --color-neutral-700: #302f4a;
+  --color-neutral-800: #262540;
+  --color-neutral-900: #02012c;
 
   /* Blue */
-  --color-blue-primary-500: "#4658D9";
-  --color-blue-primary-700: "#2B1B9C";
+  --color-blue-primary-500: #4658d9;
+  --color-blue-primary-700: #2b1b9c;
   /* Orange */
-  --color-orange-secondary: "#FF820A";
+  --color-orange-secondary: #ff820a;
 
   /* BORDER RADIUS */
-  --radius-sm: "4px";
-  --radius-md: "8px";
-  --radius-lg: "16x";
-  --radius-xl: "24px";
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
 
   /* Fonts */
   --font-bricolage: "Bricolage Grotesque", sans-serif;
   --font-dmsans: "DM Sans", sans-serif;
+
+  /* Line height */
+  --leading-hero: 120%;
 }
 
 /* font-thin → 100
@@ -38,3 +44,24 @@ font-semibold → 600
 font-bold → 700
 font-extrabold → 800
 font-black → 900 */
+
+/* main CSS */
+/* 
+html {
+  font-size: 62.5%;
+} */
+
+body {
+  font-family: "Bricolage Grotesque", sans-serif;
+
+  /* font-family: "DM Sans", sans-serif; */
+  font-style: normal;
+  background-color: #02012c;
+  color: #fff;
+  transition: color 0.3s, background-color 0.3s;
+  min-height: 100vh;
+  line-height: 1.5;
+}
+.bricolage {
+  font-family: "Bricolage Grotesque", sans-serif;
+}
