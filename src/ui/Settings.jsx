@@ -2,7 +2,7 @@ import { HiChevronDown } from "react-icons/hi";
 
 export default function Settings() {
   return (
-    <button className="flex text-[14px]  justify-center  px-[10px] py-2 gap-[6px] items-center rounded-sm bg-neutral-800  ">
+    <button className="flex text-[14px]  justify-center tab:px-4 tab:py-3   px-[10px] py-2 gap-[6px] tab:gap-[10px] items-center rounded-sm bg-neutral-800  ">
       <img
         className="h-[14px]"
         src="/images/icon-units.svg"
