@@ -1,9 +1,13 @@
 import Search from "./Search";
+import WeatherInfo from "./WeatherInfo";
 
 export default function MainContent() {
   return (
-    <main>
+    <section className="space-y-8 ">
       <Search />
-    </main>
+      <div>
+        <WeatherInfo />
+      </div>
+    </section>
   );
 }

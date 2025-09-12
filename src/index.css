@@ -4,7 +4,10 @@
 @theme {
   /* Breakpoints */
   --breakpoint-mob: 375px; /* Mobile */
+  --breakpoint-mob-tab: 500px; /* Mob-Tab */
+  --breakpoint-md: 600px;
   --breakpoint-tab: 768px; /* Tablet */
+  --breakpoint-tab-desk: 960px; /* Tab-Desk */
   --breakpoint-desk: 1440px; /* Desktop */
   /* Neutral colors */
   --color-neutral-0: #ffffff;
@@ -25,14 +28,19 @@
   --radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 16px;
-  --radius-xl: 24px;
+  --radius-xl: 20px;
 
   /* Fonts */
   --font-bricolage: "Bricolage Grotesque", sans-serif;
   --font-dmsans: "DM Sans", sans-serif;
 
+  /* Font size */
+  --font-size-hero: 52px;
+  --font-size-hero--line-height: 120%;
+  --font-size-weather-info: 28px;
+
   /* Line height */
-  --leading-hero: 120%;
+  /* --leading-hero: 120%; */
 }
 
 /* font-thin → 100
@@ -52,9 +60,7 @@ html {
 } */
 
 body {
-  font-family: "Bricolage Grotesque", sans-serif;
-
-  /* font-family: "DM Sans", sans-serif; */
+  font-family: "DM Sans", sans-serif;
   font-style: normal;
   background-color: #02012c;
   color: #fff;
