@@ -28,6 +28,7 @@
 
   /* BORDER RADIUS */
   --radius-sm: 6px;
+  --radius-base: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
   --radius-xl: 20px;

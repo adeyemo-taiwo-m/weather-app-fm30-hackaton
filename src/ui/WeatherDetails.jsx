@@ -2,7 +2,7 @@ import WeatherDetailItem from "../components/WeatherDetailItem";
 
 export default function WeatherDetails() {
   return (
-    <div className="flex flex-wrap gap-4 w-full ">
+    <div className="grid grid-cols-[repeat(auto-fit,minmax(163.5px,1fr))] gap-4 w-full ">
       <WeatherDetailItem />
       <WeatherDetailItem />
       <WeatherDetailItem />

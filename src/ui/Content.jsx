@@ -3,7 +3,7 @@ import LeftContent from "./LeftContent";
 
 export default function Content() {
   return (
-    <div>
+    <div className="flex flex-col gap-8">
       <LeftContent />
       <HourlyForecast />
     </div>
