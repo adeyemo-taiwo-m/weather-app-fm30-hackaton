@@ -1,18 +1,20 @@
 import HourlyForecastItem from "../components/HourlyForecastItem";
+import Modal from "../components/Modal";
 
 export default function HourlyForecast() {
   return (
-    <div>
-      <div className="flex justify-between items-center  ">
+    <div className="flex flex-col tab:p-6 px-4 py-5 gap-4  bg-neutral-800 rounded-xl">
+      <div className="flex justify-between items-center   ">
         <p className="text-preset-5 font-semibold ">Hourly forecast</p>
-        <select
-          id="day"
-          name="day"
-          className="bg-neutral-800  px-4 py-2 rounded-base  border-r-neutral-600 "
-        >
-          <option value="tuesday">Tuesday</option>
-        </select>
+        <Modal.ModalButton>Tuesday</Modal.ModalButton>
       </div>
+      <HourlyForecastItem />
+      <HourlyForecastItem />
+      <HourlyForecastItem />
+      <HourlyForecastItem />
+      <HourlyForecastItem />
+      <HourlyForecastItem />
+      <HourlyForecastItem />
       <HourlyForecastItem />
     </div>
   );
