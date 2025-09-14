@@ -1,14 +1,14 @@
 import Modal from "../components/Modal";
-import DaysDropdown from "../components/DaysDropdown";
+import UnitsDropdown from "../components/UnitsDropdown";
 
 export default function Settings() {
   return (
     <>
-      <Modal.ModalButton iconName="/images/icon-units.svg" name={"day"}>
+      <Modal.ModalButton iconName="/images/icon-units.svg" name="unit">
         Units
       </Modal.ModalButton>
-      <Modal.ModalDayContent name="day">
-        <DaysDropdown />
+      <Modal.ModalDayContent name="unit">
+        <UnitsDropdown />
       </Modal.ModalDayContent>
     </>
   );
