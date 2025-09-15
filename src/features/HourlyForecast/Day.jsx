@@ -1,5 +1,5 @@
 import { useState } from "react";
-import List from "./List";
+import List from "../../ui/List";
 
 export default function Day({ children, selected }) {
   const [selectedDay, setSelectedDay] = useState(selected);

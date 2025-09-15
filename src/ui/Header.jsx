@@ -1,5 +1,5 @@
-import Logo from "../components/Logo";
-import Settings from "./Settings";
+import Logo from "./Logo";
+import Settings from "../features/Settings/Settings";
 
 export default function Header() {
   return (

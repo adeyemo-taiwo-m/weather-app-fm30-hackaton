@@ -1,4 +1,4 @@
-import HourlyForecast from "./HourlyForecast";
+import HourlyForecast from "../features/HourlyForecast/HourlyForecast";
 import LeftContent from "./LeftContent";
 
 export default function Content() {

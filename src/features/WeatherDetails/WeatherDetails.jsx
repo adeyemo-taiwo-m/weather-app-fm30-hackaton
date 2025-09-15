@@ -1,4 +1,4 @@
-import WeatherDetailItem from "../components/WeatherDetailItem";
+import WeatherDetailItem from "./WeatherDetailItem";
 
 export default function WeatherDetails() {
   return (

@@ -1,5 +1,5 @@
-import DailyForecast from "./DailyForecast";
-import WeatherInfoContainer from "./WeatherInfoContainer";
+import DailyForecast from "../features/DailyForecast/DailyForecast";
+import WeatherInfoContainer from "../features/WeatherInfo/WeatherInfoContainer";
 
 export default function LeftContent() {
   return (

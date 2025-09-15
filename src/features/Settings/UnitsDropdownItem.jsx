@@ -1,4 +1,4 @@
-import List from "./List";
+import List from "../../ui/List";
 
 export default function UnitDropdownItem({ stateName, stateOne, stateTwo }) {
   return (

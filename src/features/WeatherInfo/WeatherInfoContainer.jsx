@@ -1,5 +1,5 @@
-import WeatherDetails from "./WeatherDetails";
-import WeatherInfo from "../components/WeatherInfo";
+import WeatherDetails from "../WeatherDetails/WeatherDetails";
+import WeatherInfo from "./WeatherInfo";
 
 export default function WeatherInfoContainer() {
   return (

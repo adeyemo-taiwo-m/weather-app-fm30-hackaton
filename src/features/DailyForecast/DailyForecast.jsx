@@ -1,4 +1,4 @@
-import DailyForecastItem from "../components/DailyForecastItem";
+import DailyForecastItem from "./DailyForecastItem";
 
 export default function DailyForecast() {
   return (

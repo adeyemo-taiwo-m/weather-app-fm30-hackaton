@@ -1,4 +1,4 @@
-import Search from "./Search";
+import Search from "../features/Search/Search";
 import Content from "./Content";
 
 export default function MainContent() {
