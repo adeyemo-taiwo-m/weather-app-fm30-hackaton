@@ -1,6 +1,7 @@
 import Header from "./ui/Header";
 import Title from "./ui/Title";
 import MainContent from "./ui/MainContent";
+import ApiError from "./ui/APiError";
 // import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 export default function App() {

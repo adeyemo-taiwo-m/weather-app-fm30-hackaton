@@ -6,7 +6,7 @@ export default function DropdownMenu({ iconName, dropdownTitle, children }) {
   const modalRef = useOutSideClick(() => setOpen(false));
 
   return (
-    <div className="relative inline-block text-left space-y-[10px]">
+    <div className="relative inline-block text-left ">
       {/* Button */}
       <button
         onClick={() => setOpen((prev) => !prev)}
@@ -29,7 +29,7 @@ export default function DropdownMenu({ iconName, dropdownTitle, children }) {
       {open && (
         <div
           ref={modalRef}
-          className={`flex flex-col w-[214px] right-0 absolute shadow-[inset_0_0_0_1px_#3c3b5e] p-2 gap-1  bg-neutral-800 rounded-md `}
+          className={`flex flex-col w-[214px] right-0 absolute shadow-[inset_0_0_0_1px_#3c3b5e] p-2 gap-1  bg-neutral-800 rounded-md z-50 mt-2.5 `}
         >
           {children}
         </div>
