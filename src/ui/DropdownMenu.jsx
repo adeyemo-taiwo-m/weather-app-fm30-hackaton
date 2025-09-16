@@ -1,7 +1,12 @@
 import { useState } from "react";
 import useOutSideClick from "../hooks/useOutsideClick";
 
-export default function DropdownMenu({ iconName, dropdownTitle, children }) {
+export default function DropdownMenu({
+  iconName,
+  dropdownTitle,
+  children,
+  otherButtonStyle,
+}) {
   const [open, setOpen] = useState(false);
   const modalRef = useOutSideClick(() => setOpen(false));
 
@@ -10,7 +15,7 @@ export default function DropdownMenu({ iconName, dropdownTitle, children }) {
       {/* Button */}
       <button
         onClick={() => setOpen((prev) => !prev)}
-        className={`flex text-[14px]  cursor-pointer  justify-center tab:px-4 tab:py-3   px-[10px]   gap-[6px] tab:gap-[10px] items-center rounded-sm  ${
+        className={`flex text-[14px]  cursor-pointer  justify-center tab:px-4 tab:py-3 ${otherButtonStyle}   px-[10px]   gap-[6px] tab:gap-[10px] items-center rounded-sm  ${
           iconName ? `py-2 bg-neutral-800` : `py-3 bg-neutral-600`
         }`}
       >

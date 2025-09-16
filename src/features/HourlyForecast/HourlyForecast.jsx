@@ -1,5 +1,5 @@
 import DaysDropdown from "./DaysDropdown";
-import DropdownMenu from "../../ui/Dropdown";
+import DropdownMenu from "../../ui/DropdownMenu";
 import HourlyForecastItem from "./HourlyForecastItem";
 
 export default function HourlyForecast() {
