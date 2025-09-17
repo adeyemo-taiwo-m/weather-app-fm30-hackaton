@@ -8,12 +8,14 @@ export default function DropdownMenu({
   otherButtonStyle,
 }) {
   const [open, setOpen] = useState(false);
-  const modalRef = useOutSideClick(() => setOpen(false));
+  const buttonRef = useState(null);
+  const modalRef = useOutSideClick(() => setOpen(false), buttonRef);
 
   return (
     <div className="relative inline-block text-left ">
       {/* Button */}
       <button
+        ref={buttonRef}
         onClick={() => setOpen((prev) => !prev)}
         className={`flex text-[14px]  cursor-pointer  justify-center tab:px-4 tab:py-3 ${otherButtonStyle}   px-[10px]   gap-[6px] tab:gap-[10px] items-center rounded-sm  ${
           iconName ? `py-2 bg-neutral-800` : `py-3 bg-neutral-600`

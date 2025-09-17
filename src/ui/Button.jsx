@@ -1,6 +1,8 @@
 export default function Button({
   children,
   otherStyle,
+  onClick,
+  disabled,
 
   type = "primary",
 }) {
@@ -9,5 +11,9 @@ export default function Button({
       `,
     secondary: `px-6 py-4 cursor-pointer bg-neutral-800 w-full tab:w-fit  rounded-md text-xl ${otherStyle}`,
   };
-  return <button className={style[type]}>{children}</button>;
+  return (
+    <button disabled={disabled} onClick={onClick} className={style[type]}>
+      {children}
+    </button>
+  );
 }
