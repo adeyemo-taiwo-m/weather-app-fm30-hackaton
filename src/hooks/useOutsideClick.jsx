@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import Button from "../ui/Button";
 
 export default function useOutSideClick(handleCloseModal, buttonRef) {
   const modalRef = useRef(null);

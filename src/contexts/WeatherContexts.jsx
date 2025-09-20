@@ -1,15 +1,17 @@
-import { createContext } from "react";
-import { useWeatherDetails } from "../hooks/useWeatherDetails";
+import { createContext, useState } from "react";
 
 const WeatherContext = createContext();
 export default function WeatherProvider({ children }) {
-  const { weatherDetails, isLoading } = useWeatherDetails();
+  const [weatherData, setWeatherData] = useState(null);
+  const [isPending, setIsPending] = useState(false);
 
   return (
     <WeatherContext.Provider
       value={{
-        weatherDetails,
-        isLoading,
+        weatherData,
+        setWeatherData,
+        isPending,
+        setIsPending,
       }}
     >
       {children}

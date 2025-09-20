@@ -10,3 +10,14 @@ export async function fetchCityDetails(query) {
   const data = await res.json();
   return data;
 }
+
+export async function fetchCityByCoords(lat, long) {
+  const CITY_API = `https://geocoding-api.open-meteo.com/v1/reverse?latitude=${lat}&longitude=${long}&count=1&language=en&format=json`;
+
+  const res = await fetch(CITY_API);
+  if (!res.ok) {
+    throw new Error("Failed to fetch city details by coordinates");
+  }
+  const data = await res.json();
+  return data;
+}

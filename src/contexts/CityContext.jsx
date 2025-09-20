@@ -1,15 +1,17 @@
-import { createContext } from "react";
-import useCity from "../hooks/useCity";
+import { createContext, useState } from "react";
+// import useCity from "../hooks/useCity";
 
 const CityContext = createContext();
 export default function CityProvider({ children }) {
-  const { city, isLoadingCity } = useCity();
+  const [cityData, setCityData] = useState(null);
+  // const { city, isLoadingCity } = useCity();
+  // console.log(city);
 
   return (
     <CityContext.Provider
       value={{
-        city,
-        isLoadingCity,
+        cityData,
+        setCityData,
       }}
     >
       {children}

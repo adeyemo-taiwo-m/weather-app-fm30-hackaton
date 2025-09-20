@@ -10,7 +10,6 @@ export default function useCity() {
   } = useMutation({
     mutationFn: (city) => fetchCityDetails(city),
     mutationKey: ["city"],
-    onSettled: () => {},
     onError: (error) => {
       console.error("Error fetching city details:", error);
     },
