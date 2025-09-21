@@ -10,7 +10,8 @@ export async function fetchCityDetails(query) {
   const data = await res.json();
   return data;
 }
-
+// const x = fetchCityDetails("Lagos");
+// console.log(x);
 export async function fetchCityByCoords(lat, long) {
   const CITY_API = `https://geocoding-api.open-meteo.com/v1/reverse?latitude=${lat}&longitude=${long}&count=1&language=en&format=json`;
 
