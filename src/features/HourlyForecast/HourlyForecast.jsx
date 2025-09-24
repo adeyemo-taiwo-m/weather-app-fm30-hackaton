@@ -4,9 +4,10 @@ import HourlyForecastItem from "./HourlyForecastItem";
 import { useContext } from "react";
 import { WeatherContext } from "../../contexts/WeatherContexts";
 import { formatTo12Hour } from "../../utils/helpers";
+import HourlyForecastLoader from "./HourForecastLoader";
 
 export default function HourlyForecast() {
-  const { weatherData, weatherMap, dayNames, selectedDay } =
+  const { weatherData, weatherMap, dayNames, selectedDay, isPending } =
     useContext(WeatherContext);
   const { time, temperature_2m, weather_code } = weatherData?.hourly || {};
   const days = dayNames.map((day, i) => {
@@ -23,19 +24,23 @@ export default function HourlyForecast() {
       <div className="flex justify-between items-center   ">
         <p className="text-preset-5 font-semibold ">Hourly forecast</p>
 
-        <DropdownMenu dropdownTitle={selectedDay}>
+        <DropdownMenu dropdownTitle={isPending ? "-" : selectedDay}>
           <DaysDropdown />
         </DropdownMenu>
       </div>
       <div className="overflow-y-auto flex flex-col gap-4   scrollbar-hide  ">
-        {currentDay?.time?.map((_, i) => (
-          <HourlyForecastItem
-            key={i}
-            imageName={weatherMap[currentDay?.weatherCode?.[i]]}
-            time={formatTo12Hour(currentDay?.time?.[i])}
-            temp={Math.round(currentDay?.temperature?.[i])}
-          />
-        ))}
+        {isPending ? (
+          <HourlyForecastLoader />
+        ) : (
+          currentDay?.time?.map((_, i) => (
+            <HourlyForecastItem
+              key={i}
+              imageName={weatherMap[currentDay?.weatherCode?.[i]]}
+              time={formatTo12Hour(currentDay?.time?.[i])}
+              temp={Math.round(currentDay?.temperature?.[i])}
+            />
+          ))
+        )}
       </div>
     </div>
   );
