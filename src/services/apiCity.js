@@ -1,4 +1,4 @@
-export async function fetchCityDetails(query = "lagos") {
+export async function fetchCityDetails(query) {
   if (query === "undefined") return null;
   const CITY_API = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(
     query
@@ -11,14 +11,16 @@ export async function fetchCityDetails(query = "lagos") {
   const data = await res.json();
   return data;
 }
-// const x = fetchCityDetails("Lagos");
-// console.log(x);
-export async function fetchCityByCoords(lat, long) {
-  const CITY_API = `https://geocoding-api.open-meteo.com/v1/reverse?latitude=${lat}&longitude=${long}&count=1&language=en&format=json`;
 
-  const res = await fetch(CITY_API);
+// https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=6.5568768&longitude=3.3488896&localityLanguage=en
+
+export async function getCityName(location) {
+  const { latitude, longitude } = location;
+  const GETCITYNAME_API = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`;
+
+  const res = await fetch(GETCITYNAME_API);
   if (!res.ok) {
-    throw new Error("Failed to fetch city details by coordinates");
+    throw new Error("Failed to get user city name");
   }
   const data = await res.json();
   return data;

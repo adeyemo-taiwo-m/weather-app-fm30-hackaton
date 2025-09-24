@@ -4,7 +4,7 @@ import DropdownMenu from "../../ui/DropdownMenu";
 import { useContext, useEffect, useState } from "react";
 import { CityContext } from "../../contexts/CityContext";
 export default function SearchDropdownList() {
-  const { cityData } = useContext(CityContext);
+  const { cityData } = useContext(CityContext) || {};
   const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {

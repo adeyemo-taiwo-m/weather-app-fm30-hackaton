@@ -1,13 +1,13 @@
 import { useContext } from "react";
-import { CityContext } from "../../contexts/CityContext";
 import { formatDate } from "../../utils/helpers";
 import { WeatherContext } from "../../contexts/WeatherContexts";
-import WeatherInfoLoader from "../../ui/WeatherInfoLoader";
+import Loader from "../../ui/Loader";
 
 export default function WeatherInfo() {
-  const { cityData } = useContext(CityContext);
-  const { weatherData, isPending } = useContext(WeatherContext);
-  const { name, country } = (cityData && cityData.results?.at(0)) || {};
+  // const { cityData } = useContext(CityContext);
+  const { weatherData, isPending, userCity, isPendingUserCity } =
+    useContext(WeatherContext) || {};
+  const { city, countryName } = userCity || {};
   const { temperature_2m } = (weatherData && weatherData?.current) || {};
 
   return (
@@ -20,7 +20,7 @@ export default function WeatherInfo() {
     >
       <div className={`md:text-left ${isPending && `opacity-0`} `}>
         <h3 className="text-preset-4 font-bold">
-          {cityData ? `${name}, ${country}` : "Berlin, Germany"}
+          {isPendingUserCity ? <Loader size={20} /> : `${city}, ${countryName}`}
         </h3>
         <p className="text-preset-6 opacity-80">{formatDate(new Date())}</p>
       </div>

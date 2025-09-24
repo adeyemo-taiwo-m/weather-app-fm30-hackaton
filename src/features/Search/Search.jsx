@@ -8,7 +8,7 @@ import { useWeatherDetails } from "../../hooks/useWeatherDetails";
 import useCity from "../../hooks/useCity";
 
 export default function Search() {
-  const { query, setQuery } = useContext(CityContext);
+  const { query, setQuery } = useContext(CityContext) || "";
   const { cityData, isPendingCityData } = useCity(query);
 
   console.log(cityData);
@@ -18,10 +18,9 @@ export default function Search() {
   const { refetch } = useWeatherDetails(cityData);
   function handleClick(e) {
     e?.preventDefault();
-    if (!query) return null;
-    // setQuery(e.target.closest("input").value);
-    // setCityD(cityData);
+
     refetch();
+    if (!query) return null;
   }
 
   return (

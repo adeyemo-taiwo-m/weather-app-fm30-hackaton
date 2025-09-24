@@ -3,7 +3,7 @@ import WeatherDetailItem from "./WeatherDetailItem";
 import { WeatherContext } from "../../contexts/WeatherContexts";
 
 export default function WeatherDetails() {
-  const { weatherData, isPending } = useContext(WeatherContext);
+  const { weatherData, isPending } = useContext(WeatherContext) || {};
 
   console.log(weatherData);
   const {

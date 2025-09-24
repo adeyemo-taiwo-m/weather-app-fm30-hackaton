@@ -1,22 +1,9 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { useWeatherDetails } from "../hooks/useWeatherDetails";
-import useCity from "../hooks/useCity";
+import useUserCity from "../hooks/useUserCity";
 
 const WeatherContext = createContext();
 export default function WeatherProvider({ children }) {
-  const { cityData } = useCity();
-  const [selectedDay, setSelectedDay] = useState("Tuesday");
-
-  const dayNames = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
-  ];
-
   const weatherMap = {
     0: "",
     1: "partly-cloudy",
@@ -47,12 +34,45 @@ export default function WeatherProvider({ children }) {
     96: "storm",
     99: "storm",
   };
+
+  const dayNames = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
+  const [location, setLocation] = useState(null);
+  console.log(location);
+  useEffect(() => {
+    navigator?.geolocation?.getCurrentPosition(
+      (position) => {
+        setLocation({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+        });
+      },
+      (err) => {
+        throw new Error(err.message);
+      }
+    );
+  }, []);
+
+  const today = dayNames[new Date().getDay()];
+  console.log(today);
+  const [selectedDay, setSelectedDay] = useState("Tuesday");
+  console.log(location);
+  const { userCity, isPendingUserCity } = useUserCity(location);
+  console.log(userCity);
+
   const {
     weatherDetails: weatherData,
     refetch,
     isPending,
-  } = useWeatherDetails(cityData);
-
+  } = useWeatherDetails(location);
+  console.log(location, weatherData);
   return (
     <WeatherContext.Provider
       value={{
@@ -63,6 +83,10 @@ export default function WeatherProvider({ children }) {
         dayNames,
         selectedDay,
         setSelectedDay,
+        location,
+        setLocation,
+        userCity,
+        isPendingUserCity,
       }}
     >
       {children}

@@ -1,13 +1,10 @@
 import SearchDropdown from "../../ui/DropdownSearch";
+import Loader from "../../ui/Loader";
 
 export default function SearchLoader() {
   return (
     <SearchDropdown>
-      <img
-        src="/images/icon-loading.svg"
-        alt="search icon"
-        className="loader-spin w-4"
-      />
+      <Loader />
       <p>Search for a place</p>
     </SearchDropdown>
   );

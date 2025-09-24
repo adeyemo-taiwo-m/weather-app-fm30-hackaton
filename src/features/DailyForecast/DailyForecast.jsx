@@ -5,7 +5,7 @@ import { WeatherContext } from "../../contexts/WeatherContexts";
 import DailyForecastLoader from "./DailyForecastLoader";
 
 export default function DailyForecast() {
-  const { weatherData, isPending } = useContext(WeatherContext);
+  const { weatherData, isPending } = useContext(WeatherContext) || {};
   const { time, weather_code, temperature_2m_min, temperature_2m_max } =
     weatherData?.daily || {};
 

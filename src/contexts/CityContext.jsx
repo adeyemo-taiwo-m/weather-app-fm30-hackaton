@@ -3,7 +3,7 @@ import useCity from "../hooks/useCity";
 
 const CityContext = createContext();
 export default function CityProvider({ children }) {
-  const [query, setQuery] = useState("Berlin");
+  const [query, setQuery] = useState("");
   const { cityData, isPendingCityData } = useCity(query);
   return (
     <CityContext.Provider
