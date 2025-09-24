@@ -11,16 +11,15 @@ export default function SearchDropdownList() {
     if (cityData?.results)
       setSearchResults((prev) => [...prev, cityData?.results.at(0).name]);
   }, [cityData]);
-
+  // const a = [`taiwo` , `kenny` , `Olashile`]
   console.log(searchResults);
   return (
-    <DropdownMenu>
+    <>
       <ul className="space-y-1 w-full p-2">
-        {searchResults?.length &&
-          searchResults?.map((item) => {
-            <SearchDropdownListItem>{item}</SearchDropdownListItem>;
-          })}
+        {searchResults?.map((item) => {
+          <SearchDropdownListItem>{item}</SearchDropdownListItem>;
+        })}
       </ul>
-    </DropdownMenu>
+    </>
   );
 }

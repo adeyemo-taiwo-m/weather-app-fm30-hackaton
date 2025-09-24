@@ -4,16 +4,24 @@ import { HiMagnifyingGlass } from "react-icons/hi2";
 import { useContext } from "react";
 import { CityContext } from "../../contexts/CityContext";
 import SearchDropdownList from "./SearchDropdownList";
+import { useWeatherDetails } from "../../hooks/useWeatherDetails";
+import useCity from "../../hooks/useCity";
 
 export default function Search() {
-  const { cityData, isPendingCityData, query, setQuery } =
-    useContext(CityContext);
-  console.log(query);
+  const { query, setQuery } = useContext(CityContext);
+  const { cityData, isPendingCityData } = useCity(query);
+
   console.log(cityData);
+  // const { cityD, setCityD } = useState({});
+
+  // const { refetch } = useContext(WeatherContext);
+  const { refetch } = useWeatherDetails(cityData);
   function handleClick(e) {
-    console.log("tAIWO");
-    if (!query.trim()) return null;
-    e?.preventDefault();~
+    e?.preventDefault();
+    if (!query) return null;
+    // setQuery(e.target.closest("input").value);
+    // setCityD(cityData);
+    refetch();
   }
 
   return (
@@ -30,7 +38,11 @@ export default function Search() {
             type="search"
             placeholder="Search for a place..."
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => {
+              if (e.target.value === "undefined") {
+                setQuery("Taiwo");
+              } else setQuery(e.target.value);
+            }}
             className="w-full h-full focus:outline-none bg-transparent placeholder:text-neutral-200"
           />
         </div>
@@ -42,15 +54,14 @@ export default function Search() {
           </div>
         )}
         {/* display results */}
-        {!isPendingCityData && query && query.length >= 3 && (
+        {
           <div className="relative w-full">
             <SearchDropdownList />
           </div>
-        )}
+        }
       </div>
 
       <Button disabled={isPendingCityData}>Search</Button>
     </form>
   );
 }
-``;

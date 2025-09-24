@@ -2,40 +2,11 @@ import { useContext } from "react";
 import { WeatherContext } from "../../contexts/WeatherContexts";
 
 export default function DailyForecastItem({ day, code, minTemp, maxTemp }) {
-  const { isPending } = useContext(WeatherContext);
-  const weatherMap = {
-    0: "",
-    1: "-partly-cloudy",
-    2: "-partly-cloudy",
-    3: "overcast",
-    45: "fog",
-    48: "fog",
-    51: "drizzle",
-    53: "drizzle",
-    55: "drizzle",
-    56: "drizzle",
-    57: "drizzle",
-    61: "rain",
-    63: "rain",
-    65: "rain",
-    66: "rain",
-    67: "rain",
-    71: "snow",
-    73: "snow",
-    75: "snow",
-    77: "snow",
-    80: "rain",
-    81: "rain",
-    82: "rain",
-    85: "snow",
-    86: "snow",
-    95: "storm",
-    96: "storm",
-    99: "storm",
-  };
+  const { isPending, weatherMap } = useContext(WeatherContext);
+
   return (
     <div
-      className={`bg-neutral-800 px-[10px] py-4  shadow-[inset_0_0_0_1px_#3c3b5e] rounded-md`}
+      className={`bg-neutral-800  px-[10px] py-4  shadow-[inset_0_0_0_1px_#3c3b5e] rounded-md`}
     >
       <div
         className={`${

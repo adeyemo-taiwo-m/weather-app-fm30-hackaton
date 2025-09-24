@@ -7,7 +7,7 @@ export default function MainContent() {
   // const { weatherDetails } = useContext(WeatherContext);
   // // console.log(weatherDetails);
   return (
-    <section className="space-y-8 ">
+    <section className="space-y-8 flex-1 max-h-fit  ">
       <Search />
       <Content />
     </section>

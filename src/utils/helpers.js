@@ -7,4 +7,9 @@ function formatDate(date) {
   });
 }
 
-export default formatDate;
+function formatTo12Hour(timeString) {
+  const date = new Date(timeString);
+  return date.toLocaleTimeString([], { hour: "numeric", hour12: true });
+}
+
+export { formatDate, formatTo12Hour };

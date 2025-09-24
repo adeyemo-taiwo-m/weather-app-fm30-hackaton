@@ -36,6 +36,7 @@ export default function DropdownMenu({
       {open && (
         <div
           ref={modalRef}
+          onClick={() => setOpen(false)}
           className={`flex flex-col w-[214px] right-0 absolute shadow-[inset_0_0_0_1px_#3c3b5e] p-2 gap-1  bg-neutral-800 rounded-md z-50 mt-2.5 `}
         >
           {children}

@@ -1,14 +1,10 @@
-import { useState } from "react";
 import List from "../../ui/List";
 
-export default function Day({ children, selected }) {
-  const [selectedDay, setSelectedDay] = useState(selected);
+export default function Day({ children, selected, onClick }) {
   return (
     <List
-      onClick={() => {
-        setSelectedDay((day) => !day);
-      }}
-      otherClass={`   ${selectedDay ? "bg-neutral-700" : ""} `}
+      onClick={onClick}
+      otherClass={`   ${selected ? "bg-neutral-700" : ""} `}
     >
       {children}
     </List>
