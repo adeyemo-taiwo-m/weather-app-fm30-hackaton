@@ -60,12 +60,9 @@ export default function WeatherProvider({ children }) {
     );
   }, []);
 
-  const today = dayNames[new Date().getDay()];
-  console.log(today);
-  const [selectedDay, setSelectedDay] = useState("Tuesday");
-  console.log(location);
+  const today = dayNames[new Date().getDay() - 1];
+  const [selectedDay, setSelectedDay] = useState(today);
   const { userCity, isPendingUserCity } = useUserCity(location);
-  console.log(userCity);
 
   const {
     weatherDetails: weatherData,

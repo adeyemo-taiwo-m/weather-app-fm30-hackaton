@@ -1,5 +1,5 @@
 export async function fetchCityDetails(query) {
-  if (query === "undefined") return null;
+  if (!query || query.length < 3) return null;
   const CITY_API = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(
     query
   )}&count=1&language=en&format=json`;

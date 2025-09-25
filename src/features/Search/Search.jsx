@@ -4,28 +4,39 @@ import { HiMagnifyingGlass } from "react-icons/hi2";
 import { useContext } from "react";
 import { CityContext } from "../../contexts/CityContext";
 import SearchDropdownList from "./SearchDropdownList";
+import { WeatherContext } from "../../contexts/WeatherContexts";
 import { useWeatherDetails } from "../../hooks/useWeatherDetails";
-import useCity from "../../hooks/useCity";
 
 export default function Search() {
-  const { query, setQuery } = useContext(CityContext) || "";
-  const { cityData, isPendingCityData } = useCity(query);
+  const { query, setQuery, cityData, isPendingCityData, selectedCity } =
+    useContext(CityContext);
 
-  console.log(cityData);
-  // const { cityD, setCityD } = useState({});
+  const { setLocation } = useContext(WeatherContext);
 
-  // const { refetch } = useContext(WeatherContext);
-  const { refetch } = useWeatherDetails(cityData);
-  function handleClick(e) {
+  const location =
+    cityData?.results?.length > 0 && selectedCity
+      ? {
+          latitude: selectedCity?.latitude,
+          longitude: selectedCity?.longitude,
+        }
+      : null;
+  const {
+    weatherDetails: weatherData,
+    refetch,
+    isPending,
+  } = useWeatherDetails(location);
+  console.log(weatherData);
+
+  function handleSubmit(e) {
     e?.preventDefault();
-
+    setLocation(location);
     refetch();
-    if (!query) return null;
+    setQuery("");
   }
 
   return (
     <form
-      onSubmit={handleClick}
+      onSubmit={handleSubmit}
       className="flex flex-col tab-desk:w-9/20 w-full mx-auto tab:flex-row gap-[12px] tab:gap-4"
     >
       <div className="flex-grow gap-[14px] cursor-pointer flex flex-col">
@@ -37,30 +48,25 @@ export default function Search() {
             type="search"
             placeholder="Search for a place..."
             value={query}
-            onChange={(e) => {
-              if (e.target.value === "undefined") {
-                setQuery("Taiwo");
-              } else setQuery(e.target.value);
-            }}
+            onChange={(e) => setQuery(e.target.value)}
             className="w-full h-full focus:outline-none bg-transparent placeholder:text-neutral-200"
           />
         </div>
-
         {/* loader for city */}
-        {isPendingCityData && query.length >= 3 && (
-          <div className="relative w-full">
-            <SearchLoader />
-          </div>
-        )}
-        {/* display results */}
-        {
+        {query.length > 3 && isPending && (
           <div className="relative w-full">
             <SearchDropdownList />
           </div>
-        }
+        )}
+        {/* display results */}
+        {/* {isPending && isPendingCityData && (
+          <div className="relative w-full">
+            <SearchLoader />
+          </div>
+        )} */}
       </div>
 
-      <Button disabled={isPendingCityData}>Search</Button>
+      <Button disabled={isPending || isPendingCityData}>Search</Button>
     </form>
   );
 }

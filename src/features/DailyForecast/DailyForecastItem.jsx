@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { WeatherContext } from "../../contexts/WeatherContexts";
 
 export default function DailyForecastItem({ day, code, minTemp, maxTemp }) {
-  const { isPending, weatherMap } = useContext(WeatherContext);
+  const { isPending, weatherMap } = useContext(WeatherContext) || {};
 
   return (
     <div
